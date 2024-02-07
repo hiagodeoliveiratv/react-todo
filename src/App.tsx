@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, KeyboardEvent } from 'react';
+import styles from './App.module.css';
+import { Task } from './types/Task';
+import { TaskItem } from './components/TaskItem';
+import { AddTask } from './components/AddTask';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ()=>{
+
+    const [ taskList, setTaskList ] = useState<Task[]>([
+        {id: 0, name: 'Comprar pão na padaria', done:false},
+        {id: 1, name: 'Comprar bolo na padaria', done:true},
+    ]);
+
+
+
+    return (
+        <div className={styles.container}>
+
+            <div className={styles.area}>
+
+                <header >
+                    <h1 className={styles.headerTitle}>Lista de Tarefas</h1>
+                </header>
+
+                <AddTask
+                    taskList={taskList} 
+                    setTaskList={setTaskList}               
+                />
+
+                {taskList.map(task =>(
+                    <TaskItem
+                        key={task.id}
+                        task={task}
+                    />
+                ))}
+
+            </div>
+        </div>
+    );
+  
 }
 
 export default App;

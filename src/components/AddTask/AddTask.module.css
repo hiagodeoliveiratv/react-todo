@@ -1,0 +1,21 @@
+.taskAdd {
+    border: 1px solid #3e3c3c;
+    display: flex;
+    margin-bottom: 20px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+}
+.taskAdd p {
+    margin: 0;
+    font-size: 24px;
+    padding:  0 10px;
+}
+.taskAdd input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    outline: none;
+    color: #fff;
+}
